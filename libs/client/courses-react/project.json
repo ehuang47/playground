@@ -1,0 +1,9 @@
+{
+  "name": "courses-react",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/client/courses-react/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project courses-react --web",
+  "targets": {}
+}

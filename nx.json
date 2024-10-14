@@ -11,7 +11,6 @@
       "!{projectRoot}/cypress/**/*",
       "!{projectRoot}/**/*.cy.[jt]s?(x)",
       "!{projectRoot}/cypress.config.[jt]s",
-      "!{projectRoot}/jest.config.[jt]s",
       "!{projectRoot}/src/test-setup.[jt]s",
       "!{projectRoot}/test-setup.[jt]s"
     ],
@@ -46,9 +45,11 @@
       }
     },
     {
-      "plugin": "@nx/jest/plugin",
+      "plugin": "@nx/webpack/plugin",
       "options": {
-        "targetName": "test"
+        "buildTargetName": "build",
+        "serveTargetName": "serve",
+        "previewTargetName": "preview"
       }
     }
   ],
@@ -63,14 +64,16 @@
         "babel": true,
         "style": "tailwind",
         "linter": "eslint",
-        "bundler": "vite"
+        "bundler": "vite",
+        "unitTestRunner": "vitest"
       },
       "component": {
         "style": "tailwind"
       },
       "library": {
         "style": "tailwind",
-        "linter": "eslint"
+        "linter": "eslint",
+        "unitTestRunner": "vitest"
       }
     }
   }

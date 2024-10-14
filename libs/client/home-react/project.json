@@ -1,0 +1,9 @@
+{
+  "name": "home-react",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/client/home-react/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project home-react --web",
+  "targets": {}
+}

@@ -80,3 +80,41 @@ And join the Nx community:
 - [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
 - [Our Youtube channel](https://www.youtube.com/@nxdevtools)
 - [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+
+## My setup
+
+created github repo online, completely empty. followed instructions for creating access token to push local repo to remote
+
+make sure to update node to after 17.0 so react preset doesn't throw errors involving structuredClone support
+options included nvm, brew update, or `sudo npm i -g n` and `sudo n latest`
+globally install nx: `npm i -g nx`
+
+nx commands!
+after each nx command, add `--dry-run` to make sure it won't error
+locally created matching repo name via `npx create-nx-workspace@latest projectName --preset=react-monorepo`
+rename apps as needed. deleted the preset and generated new apps with `nx g @nx/react:app apps/client/appName`, including react router
+installed `npm i @nx/express --legacy-peer-deps`
+created express `nx g @nx/express:application apps/server/projectName`
+rearranging folders with `nx g move --project projectName path/to/new/projectName`
+update prettier.rc, eslint.config, etc.
+change react app vite.config.ts build outDir to local folder for caching, ./build/projectName
+create local libs for shared logic with `nx g @nx/react:library libs/client/libName --unitTestRunner=vitest --bundler=none --style=none`
+Use style=none because it doesnt let me pick an option and for some reason would default to a broken styled components + tailwind
+installed `npm i @chakra-ui/react @emotion/react @emotion/styled framer-motion --legacy-peer-deps`
+Fix peer dependency issues with `npm install eslint@^8.57.1`, since `eslint-plugin-jsx-a11y@6.7.1` only supports up to eslint@8.x
+deleted all instances of jest in test files and configs, make sure vitest types are specified in the tsconfig.spec.jsons for projects/libs
+make sure `nx.json` generators have the line `"unitTestRunner": "vitest"` since that's what i wanna use, and i dont want it to unnecessarily install and config jest
+test `npx nx graph`
+try testing via
+```shell
+npx nx test projectName
+npx nx lint projectName
+npx nx e2e projectName
+npx nx run-many -t test
+```
+
+
+
+todo:
+set up storybook, husky, commitizen, github actions, chakraUI
+react query, observable-hooks, zustand, msw...
