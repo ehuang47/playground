@@ -17,7 +17,7 @@
     "paths": {
       "@playground/courses-react": ["libs/client/courses-react/src/index.ts"],
       "@playground/home-react": ["libs/client/home-react/src/index.ts"],
-      "@playground/shared-react": ["libs/client/shared-react/src/index.ts"],
+      "@playground/shared-react": ["libs/client/shared-react/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
