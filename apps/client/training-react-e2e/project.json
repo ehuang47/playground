@@ -6,5 +6,13 @@
   "tags": [],
   "implicitDependencies": ["training-react"],
   "// targets": "to see all targets run: nx show project training-react-e2e --web",
-  "targets": {}
+  "targets": {
+    "component-test": {
+      "executor": "@nx/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/client/training-react-e2e/cypress.config.ts",
+        "testingType": "component"
+      }
+    }
+  }
 }
